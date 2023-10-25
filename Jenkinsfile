@@ -19,5 +19,11 @@ pipeline {
                 echo 'Hello World'
             }
         }
+
+        stage('Files') {
+            steps {
+                sh 'ls -la'
+            }
+        }
     }
 }
