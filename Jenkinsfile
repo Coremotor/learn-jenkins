@@ -6,15 +6,17 @@ pipeline {
         }
     }
 
-//    environment {
-//        CI = 'true'
-//        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-//    }
+    environment {
+        VITE_SOME_KEY = 'VITE_SOME_KEY - value'
+        CUSTOM_SOME_KEY = 'CUSTOM_SOME_KEY - value'
+    }
 
     stages {
-        stage('Node version') {
+        stage('Node version and jenkins environment') {
             steps {
                 sh 'node --version'
+                echo 'VITE_SOME_KEY is ${VITE_SOME_KEY}'
+                echo 'CUSTOM_SOME_KEY is ${CUSTOM_SOME_KEY}'
             }
         }
 
