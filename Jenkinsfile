@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+    docker {
+        image 'node:20.9.0-alpine3.18'
+    }
 
     stages {
         stage('One') {
@@ -7,13 +10,13 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        
+
         stage('Two') {
             steps {
                 echo 'Hello World'
             }
         }
-        
+
         stage('Three') {
             steps {
                 echo 'Hello World'
