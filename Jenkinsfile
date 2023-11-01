@@ -26,9 +26,9 @@ pipeline {
             }
         }
         
-        stage('Node version') {
+        stage('Files') {
             steps {
-                sh 'node --version'
+                sh 'ls -la'
             }
         }
     }
