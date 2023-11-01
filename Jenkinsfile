@@ -17,15 +17,21 @@ pipeline {
                 sh 'node --version'
             }
         }
-        
-        stage('Build') {
+
+        stage('install dependencies') {
             steps {
                 sh 'corepack enable'
                 sh 'yarn set version stable'
                 sh 'yarn install'
             }
         }
-        
+
+        stage('Build app') {
+            steps {
+                sh 'yarn build'
+            }
+        }
+
         stage('Files') {
             steps {
                 sh 'ls -la'
