@@ -15,8 +15,8 @@ pipeline {
         stage('Node version and jenkins environment') {
             steps {
                 sh 'node --version'
-                echo 'VITE_SOME_KEY is ' ${VITE_SOME_KEY}
-                echo 'CUSTOM_SOME_KEY is ' ${CUSTOM_SOME_KEY}
+                echo "VITE_SOME_KEY is ${VITE_SOME_KEY}"
+                echo "CUSTOM_SOME_KEY is ${CUSTOM_SOME_KEY}"
                 sh 'printenv'
             }
         }
