@@ -34,7 +34,7 @@ pipeline {
 //            }
 //        }
 
-        stage('Files') {
+        stage('node') {
             steps {
                 sh 'node'
                 sh 'console.log(process.env)'
