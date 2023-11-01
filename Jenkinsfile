@@ -20,17 +20,25 @@ pipeline {
             }
         }
 
-        stage('install dependencies') {
-            steps {
-                sh 'corepack enable'
-                sh 'yarn set version stable'
-                sh 'yarn install'
-            }
-        }
+//        stage('install dependencies') {
+//            steps {
+//                sh 'corepack enable'
+//                sh 'yarn set version stable'
+//                sh 'yarn install'
+//            }
+//        }
+//
+//        stage('Build app') {
+//            steps {
+//                sh 'yarn build'
+//            }
+//        }
 
-        stage('Build app') {
+        stage('Files') {
             steps {
-                sh 'yarn build'
+                sh 'node'
+                console.log(process.env)
+                sh '.exit'
             }
         }
 
