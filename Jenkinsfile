@@ -9,7 +9,7 @@ pipeline {
     environment {
         VITE_SOME_KEY = 'VITE_SOME_KEY - value'
         CUSTOM_SOME_KEY = 'CUSTOM_SOME_KEY - value'
-        SSH_CLOUD = credentials('ssh_cloud')
+//        SSH_CLOUD = credentials('ssh_cloud')
     }
 
     stages {
@@ -45,18 +45,18 @@ pipeline {
 }
 
 node {
-    def remote = [:]
-    remote.name = 'root'
-    remote.host = '185.182.110.169'
-    remote.user = 'root'
-    remote.password = "${SSH_CLOUD}"
-    remote.allowAnyHosts = true
-    stage('Remote SSH') {
-        environment {
-            SSH_CLOUD = credentials('ssh_cloud')
+    withCredentials([string(credentialsId: 'ssh_cloud', variable: 'SSH_CLOUD')]) {
+        def remote = [:]
+        remote.name = 'root'
+        remote.host = '185.182.110.169'
+        remote.user = 'root'
+        remote.password = '$SSH_CLOUD'
+        remote.allowAnyHosts = true
+        stage('Remote SSH') {
+            sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/.', override: true
+            sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/.', override: true
         }
 
-        sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/.', override: true
-        sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/.', override: true
     }
+
 }
