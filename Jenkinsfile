@@ -37,7 +37,7 @@ pipeline {
         stage('Files') {
             steps {
                 sh 'node'
-                console.log(process.env)
+                sh 'console.log(process.env)'
                 sh '.exit'
             }
         }
