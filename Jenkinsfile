@@ -9,7 +9,6 @@ pipeline {
     environment {
         VITE_SOME_KEY = 'VITE_SOME_KEY - value'
         CUSTOM_SOME_KEY = 'CUSTOM_SOME_KEY - value'
-//        SSH_CLOUD = credentials('ssh_cloud')
     }
 
     stages {
