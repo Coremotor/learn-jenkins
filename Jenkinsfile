@@ -1,4 +1,11 @@
 pipeline {
+    def remote = [:]
+    remote.name = 'root'
+    remote.host = '185.182.110.169'
+    remote.user = 'root'
+    remote.password = 'g7wJv?i=LhNm'
+    remote.allowAnyHosts = true
+
     agent {
         docker {
             image 'node:20.9.0-alpine3.18'
@@ -43,6 +50,10 @@ pipeline {
             steps {
                 sh 'ls -la ./dist/assets'
             }
+        }
+
+        stage('Remote SSH') {
+            sshCommand remote: remote, command: "ls -lrt"
         }
     }
 }
