@@ -5,12 +5,12 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
+        stage('Node version') {
             steps {
-                sh 'npm install'
+                sh 'node --version'
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
                 sh './scripts/setup.sh'
             }
