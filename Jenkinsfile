@@ -38,6 +38,9 @@ pipeline {
         stage('Files') {
             steps {
                 sh 'ls -la'
+                sh 'cd dist'
+                sh 'ls -la'
+                sh 'cat ./dist/index.html'
             }
         }
     }
