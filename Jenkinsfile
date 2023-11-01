@@ -38,6 +38,8 @@ pipeline {
         stage('Files') {
             steps {
                 sh 'ls -la'
+                sh 'git commit -m dist'
+                sh 'git pull'
             }
         }
     }
