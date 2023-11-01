@@ -52,9 +52,11 @@ node {
     remote.password = "${SSH_CLOUD}"
     remote.allowAnyHosts = true
     stage('Remote SSH') {
+        environment {
+            SSH_CLOUD = credentials('ssh_cloud')
+        }
+
         sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/.', override: true
         sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/.', override: true
-
-        sshCommand remote: remote, command: "ls -la ../usr/share/nginx/html"
     }
 }
