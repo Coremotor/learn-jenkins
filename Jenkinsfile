@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:20.9.0-alpine3.18'
-            args '-u root --privileged'
+            args '-u root'
         }
     }
 
@@ -19,6 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sudo chmod -R 777 home/node
                 sh './scripts/setup.sh'
             }
         }
