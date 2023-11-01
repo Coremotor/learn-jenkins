@@ -56,5 +56,6 @@ node {
     remote.allowAnyHosts = true
     stage('Remote SSH') {
         sshCommand remote: remote, command: "ls -lrt /usr/share/nginx/html"
+        sshPut remote: remote, from: '/dist', into: '/usr/share/nginx/html'
     }
 }
