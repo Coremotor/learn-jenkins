@@ -17,9 +17,18 @@ pipeline {
                 sh 'node --version'
             }
         }
+        
         stage('Build') {
             steps {
-                sh 'npm i'
+                sh 'corepack enable'
+                sh 'yarn set version stable'
+                sh 'yarn install'
+            }
+        }
+        
+        stage('Node version') {
+            steps {
+                sh 'node --version'
             }
         }
     }
