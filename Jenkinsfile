@@ -20,30 +20,30 @@ pipeline {
                 sh 'printenv'
             }
         }
-
-        stage('install dependencies') {
-            steps {
-                sh 'corepack enable'
-                sh 'yarn set version stable'
-                sh 'yarn install'
-            }
-        }
-
-        stage('Build app') {
-            steps {
-                sh 'echo VITE_SOME_KEY=${VITE_SOME_KEY} > .env'
-                sh 'echo CUSTOM_SOME_KEY=${CUSTOM_SOME_KEY} >> .env'
-                sh 'cat .env'
-                sh 'yarn build'
-                sh 'rm .env'
-            }
-        }
-
-        stage('Files') {
-            steps {
-                sh 'ls -la ./dist/assets'
-            }
-        }
+//
+//        stage('install dependencies') {
+//            steps {
+//                sh 'corepack enable'
+//                sh 'yarn set version stable'
+//                sh 'yarn install'
+//            }
+//        }
+//
+//        stage('Build app') {
+//            steps {
+//                sh 'echo VITE_SOME_KEY=${VITE_SOME_KEY} > .env'
+//                sh 'echo CUSTOM_SOME_KEY=${CUSTOM_SOME_KEY} >> .env'
+//                sh 'cat .env'
+//                sh 'yarn build'
+//                sh 'rm .env'
+//            }
+//        }
+//
+//        stage('Files') {
+//            steps {
+//                sh 'ls -la ./dist/assets'
+//            }
+//        }
     }
 }
 
@@ -55,7 +55,7 @@ node {
     remote.password = 'g7wJv?i=LhNm'
     remote.allowAnyHosts = true
     stage('Remote SSH') {
-        sshCommand remote: remote, command: "ll /usr/share/nginx/html"
+        sshCommand remote: remote, command: "ls usr/share/nginx/html"
         sshPut remote: remote, from: 'dist', into: 'usr/share/nginx/html'
     }
 }
