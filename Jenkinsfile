@@ -37,8 +37,10 @@ pipeline {
 
         stage('Files') {
             steps {
+                sh 'echo VITE_SOME_KEY=${VITE_SOME_KEY} > .env'
+                sh 'echo CUSTOM_SOME_KEY=${CUSTOM_SOME_KEY} > .env'
                 sh 'ls -la'
-                sh 'ls -la ./dist'
+                sh 'cat .env'
             }
         }
     }
