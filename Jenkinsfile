@@ -19,8 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'chmod -R 777 .'
-                sh './scripts/setup.sh'
+                sh 'npm i'
             }
         }
     }
