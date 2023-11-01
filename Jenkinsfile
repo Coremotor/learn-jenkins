@@ -12,11 +12,11 @@ pipeline {
     }
 
     stages {
-        stage('Node version') {
-            steps {
-                sh 'node --version'
-            }
-        }
+//        stage('Node version') {
+//            steps {
+//                sh 'node --version'
+//            }
+//        }
 
         stage('install dependencies') {
             steps {
@@ -35,11 +35,11 @@ pipeline {
             }
         }
 
-        stage('Files') {
-            steps {
-                sh 'ls -la ./dist'
-            }
-        }
+//        stage('Files') {
+//            steps {
+//                sh 'ls -la ./dist'
+//            }
+//        }
     }
 }
 
