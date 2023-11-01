@@ -17,6 +17,7 @@ pipeline {
                 sh 'node --version'
                 echo 'VITE_SOME_KEY is ${VITE_SOME_KEY}'
                 echo 'CUSTOM_SOME_KEY is ${CUSTOM_SOME_KEY}'
+                sh 'printenv'
             }
         }
 
@@ -33,14 +34,6 @@ pipeline {
 //                sh 'yarn build'
 //            }
 //        }
-
-        stage('node') {
-            steps {
-                sh 'node'
-                sh 'console.log(process.env)'
-                sh '.exit'
-            }
-        }
 
         stage('Files') {
             steps {
