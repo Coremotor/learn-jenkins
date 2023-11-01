@@ -58,7 +58,7 @@ node {
 //        sshCommand remote: remote, command: "ls -la ../usr/share/nginx/html"
 //        sshCommand remote: remote, command: "cat ../usr/share/nginx/html/index.html"
 
-        sshPut remote: remote, from: 'dist/*', into: '../usr/share/nginx/html/', override: true
+        sshPut remote: remote, from: 'dist/.', into: '../usr/share/nginx/html/.', override: true
         sshCommand remote: remote, command: "ls -la ../usr/share/nginx/html"
     }
 }
