@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'chmod -R 777 home/node'
+                sh 'chmod -R 777 .'
                 sh './scripts/setup.sh'
             }
         }
