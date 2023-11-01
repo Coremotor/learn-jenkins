@@ -55,7 +55,9 @@ node {
     remote.password = 'g7wJv?i=LhNm'
     remote.allowAnyHosts = true
     stage('Remote SSH') {
-        sshCommand remote: remote, command: "ls -la ../"
+        sshCommand remote: remote, command: "ls -la ../usr/share/nginx/html"
+        sshCommand remote: remote, command: "cat ../usr/share/nginx/html/index.html"
+
 //        sshPut remote: remote, from: 'dist', into: 'usr/share/nginx/html'
     }
 }
