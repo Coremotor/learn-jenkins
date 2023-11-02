@@ -49,14 +49,11 @@ node {
         remote.name = 'root'
         remote.host = '185.182.110.169'
         remote.user = 'root'
-//        remote.password = "${SSH_CLOUD}"
-        remote.password = 'g7wJv?i=LhNm'
+        remote.password = "${SSH_CLOUD}"
         remote.allowAnyHosts = true
         stage('Remote SSH') {
-            sshPut remote: remote, from: 'dist/*', into: '../usr/share/nginx/html/'
-
-//            sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/.', override: true
-//            sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/.', override: true
+            sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/.', override: true
+            sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/.', override: true
         }
 
     }
