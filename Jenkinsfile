@@ -38,7 +38,6 @@ pipeline {
         stage('Files') {
             steps {
                 sh 'ls -la ./dist'
-                sh 'scp dist/*/* root@185.182.110.169:usr/share/nginx/html'
             }
         }
     }
