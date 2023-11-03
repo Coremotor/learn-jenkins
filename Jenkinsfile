@@ -50,7 +50,7 @@ node {
         remote.password = SSH_CLOUD
         remote.allowAnyHosts = true
         stage('Remote SSH') {
-            sshPut remote: remote, from: 'dist/*', into: '../usr/share/nginx/main'
+            sshPut remote: remote, from: 'dist/', into: '../usr/share/nginx/main/'
 
 //            sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/'
 //            sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/'
