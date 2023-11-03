@@ -25,7 +25,8 @@ pipeline {
 //                sh 'corepack enable'
 //                sh 'yarn set version stable'
 //                sh 'yarn install'
-                  sh 'scripts/setup.sh'
+                  sh "chmod +x ./scripts/setup.sh"
+                  sh './scripts/setup.sh'
             }
         }
 
