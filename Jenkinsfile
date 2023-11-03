@@ -7,8 +7,13 @@ pipeline {
     }
 
     environment {
-        withCredentials([string(credentialsId: 'vite_token', variable: 'VITE_TOKEN')]) {
-            VITE_SOME_KEY = 'VITE_SOME_KEY - value'
+        withCredentials(
+            [
+                string(credentialsId: 'vite_token', variable: 'VITE_TOKEN'),
+                string(credentialsId: 'vite_some_key', variable: 'VITE_SOME_KEY')
+            ]
+        ) {
+            VITE_SOME_KEY = VITE_SOME_KEY
             VITE_TOKEN = VITE_TOKEN
             CUSTOM_SOME_KEY = 'CUSTOM_SOME_KEY - value'
         }
@@ -31,10 +36,7 @@ pipeline {
 
         stage('Build app') {
             steps {
-//                sh 'echo VITE_SOME_KEY=${VITE_SOME_KEY} > .env'
-//                sh 'echo CUSTOM_SOME_KEY=${CUSTOM_SOME_KEY} >> .env'
                 sh 'yarn build'
-//                sh 'rm .env'
             }
         }
 
