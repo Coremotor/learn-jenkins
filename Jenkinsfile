@@ -7,9 +7,11 @@ pipeline {
     }
 
     environment {
-        VITE_SOME_KEY = 'VITE_SOME_KEY - value'
-        VITE_TOKEN = 'Token - hvacjhvakvckw4vkv4vwkjvK4YVkvkv4kv4YV'
-        CUSTOM_SOME_KEY = 'CUSTOM_SOME_KEY - value'
+        withCredentials([string(credentialsId: 'vite_token', variable: 'VITE_TOKEN')]) {
+            VITE_SOME_KEY = 'VITE_SOME_KEY - value'
+            VITE_TOKEN = VITE_TOKEN
+            CUSTOM_SOME_KEY = 'CUSTOM_SOME_KEY - value'
+        }
     }
 
     stages {
