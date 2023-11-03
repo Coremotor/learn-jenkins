@@ -42,7 +42,11 @@ pipeline {
 }
 
 node {
-    withCredentials([string(credentialsId: 'ssh_cloud', variable: 'SSH_CLOUD'), string(credentialsId: 'ssh_user', variable: 'SSH_USER'), string(credentialsId: 'ssh_host', variable: 'SSH_HOST')]) {
+    withCredentials([
+        string(credentialsId: 'ssh_cloud', variable: 'SSH_CLOUD'),
+        string(credentialsId: 'ssh_user', variable: 'SSH_USER'),
+        string(credentialsId: 'ssh_host', variable: 'SSH_HOST')
+    ]) {
         def remote = [:]
         remote.name = SSH_USER
         remote.host = SSH_HOST
