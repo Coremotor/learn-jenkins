@@ -3,9 +3,11 @@ import './App.css'
 function App() {
   return (
     <div>
-      {import.meta.env.MODE}
       <div>Test !!!</div>
-      {import.meta.env.VITE_SOME_KEY}
+      <div>MODE: {import.meta.env.MODE}</div>
+      <div>VITE_SOME_KEY: {import.meta.env.VITE_SOME_KEY}</div>
+      <div>VITE_TOKEN: {import.meta.env.VITE_TOKEN}</div>
+      <div>CUSTOM_SOME_KEY: {import.meta.env.CUSTOM_SOME_KEY}</div>
     </div>
   )
 }
