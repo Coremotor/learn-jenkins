@@ -22,9 +22,10 @@ pipeline {
 
         stage('install dependencies') {
             steps {
-                sh 'corepack enable'
-                sh 'yarn set version stable'
-                sh 'yarn install'
+//                sh 'corepack enable'
+//                sh 'yarn set version stable'
+//                sh 'yarn install'
+                  sh 'scripts/setup.sh'
             }
         }
 
