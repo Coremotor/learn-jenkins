@@ -14,19 +14,16 @@ pipeline {
     }
 
     stages {
-//        stage('Node version') {
-//            steps {
-//                sh 'node --version'
-//            }
-//        }
+        stage('Node version') {
+            steps {
+                sh 'node --version'
+            }
+        }
 
         stage('install dependencies') {
             steps {
-//                sh 'corepack enable'
-//                sh 'yarn set version stable'
-//                sh 'yarn install'
-                  sh "chmod +x ./scripts/setup.sh"
-                  sh './scripts/setup.sh'
+                sh "chmod +x ./scripts/setup.sh"
+                sh './scripts/setup.sh'
             }
         }
 
@@ -53,11 +50,11 @@ node {
         remote.password = SSH_CLOUD
         remote.allowAnyHosts = true
         stage('Remote SSH') {
-//            sshPut remote: remote, from: 'dist/**/*', into: '../usr/share/nginx/html/' ????
+            sshPut remote: remote, from: 'dist/*', into: '../usr/share/nginx/main'
 
-            sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/'
-            sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/'
-            sshPut remote: remote, from: 'dist/icon.svg', into: '../usr/share/nginx/html/'
+//            sshPut remote: remote, from: 'dist/assets', into: '../usr/share/nginx/html/'
+//            sshPut remote: remote, from: 'dist/index.html', into: '../usr/share/nginx/html/'
+//            sshPut remote: remote, from: 'dist/icon.svg', into: '../usr/share/nginx/html/'
         }
 
     }
