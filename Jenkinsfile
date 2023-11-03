@@ -45,7 +45,7 @@ node {
     withCredentials([string(credentialsId: 'ssh_cloud', variable: 'SSH_CLOUD'), string(credentialsId: 'ssh_user', variable: 'SSH_USER'), string(credentialsId: 'ssh_host', variable: 'SSH_HOST')]) {
         def remote = [:]
         remote.name = SSH_USER
-        remote.host = DDH_HOST
+        remote.host = SSH_HOST
         remote.user = SSH_USER
         remote.password = SSH_CLOUD
         remote.allowAnyHosts = true
