@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import './App.css'
 
 function App() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<{firstName: string, lastName: string} | null>(null)
   useEffect(() => {
     fetch('http://localhost:1234/api/user')
       .then((response) => {
