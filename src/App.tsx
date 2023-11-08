@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   const [user, setUser] = useState<{firstName: string, lastName: string} | null>(null)
   useEffect(() => {
-    fetch('http://localhost:1234/api/user')
+    fetch('https://for-test-apps.ru:1234/api/user')
       .then((response) => {
         return response.json();
       })
