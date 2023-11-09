@@ -1,15 +1,13 @@
 import {useEffect, useState} from 'react'
 import './App.css'
+import axios from 'axios'
 
 function App() {
   const [user, setUser] = useState<{firstName: string, lastName: string} | null>(null)
   useEffect(() => {
-    fetch('https://for-test-apps.ru:1234/api/user')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setUser(data);
+    axios('https://for-test-apps.ru:1234/api/user')
+      .then((data: any) => {
+        setUser(data.data);
       });
     }, [])
   return (
