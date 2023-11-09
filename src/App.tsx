@@ -2,11 +2,15 @@ import {useEffect, useState} from 'react'
 import './App.css'
 import axios from 'axios'
 
+interface User {
+  firstName: string, lastName: string
+}
+
 function App() {
-  const [user, setUser] = useState<{firstName: string, lastName: string} | null>(null)
+  const [user, setUser] = useState<User | null>(null)
   useEffect(() => {
-    axios('https://for-test-apps.ru:1234/api/user')
-      .then((data: any) => {
+    axios<User>('http://localhost:1234/api/user')
+      .then((data) => {
         setUser(data.data);
       });
     }, [])
